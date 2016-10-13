@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+    
+    <script>
+        function setup() {
+            
+            
+            createCanvas(800,600);
+            
+            //face 
+            stroke(100,198,100);
+            strokeWeight(10);
+            fill(100,198,100);
+            rect(200,20,440,180);
+            
+            //eyes 
+            stroke(255);
+            fill(255);
+            ellipse(520,80,160,80);
+            ellipse(300,80,160,80);
+            
+            stroke(0);
+            fill(0);
+            ellipse(520,80,40,80);
+            ellipse(300,80,40,80);
+            
+            //mouth
+            strokeWeight(20);
+            line(520,180,300,180);
+            
+             //arms
+            stroke(0);
+            line(280,340,200,260);
+            line(520,340,620,260);
+            
+            //text
+            strokeWeight(0);
+            textSize(30);
+            stroke(0);
+            text("Hi im Malcolm",5,110);
+            
+            //body 
+            stroke(100,198,100);
+            fill(100,198,100);
+            ellipse(410,380,300,360);
+            
+            
+            
+            
+          
+            
+        }
+
+        function draw() {
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/USERNAME/p5js/blob/gh-pages/FILENAME.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
