@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>p5js Template</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.js"></script>
+
+    <script>
+        var thickness = 50;
+        var shape1Color = 200;
+
+        function setup() {
+            create Canvas(800, 600);
+        }
+
+        function draw() {
+
+
+
+        }
+
+        function keyPressed() {
+            //cbackground anf fill of the shape 
+            fill(mouseX, random(200), random(200));
+            background(random(200), random(200), random(200));
+
+
+        }
+
+        function mouseMoved() {
+            //rectangles drawn when mouse is moved
+            strokeWeight(random(thickness));
+            stroke(random(shape1Color));
+            rectMode(CENTER);
+            rect(mouseX, mouseY,random(100),random(100));
+        }
+
+        function  mouseDragged() {
+            //when mouse dragged a circle is drawn and the   bhh
+             strokeWeight(random(thickness));
+             stroke(random(shape1Color));
+             ellipse(mouseX,mouseY,random(50));
+            }
+
+
+        
+    </script>
+
+
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/anabela0701/p5js/blob/gh-pages/interaction.html?footer=0"></script>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+
+</html>
