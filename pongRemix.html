@@ -1,1 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>Pong</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.13/p5.js"></script>
+    <script>
+        var ballX;
+        var ballY;
+        var ballSpeedX = 5; // how fast the ball will move left to right
+        var ballSpeedY = 5; // how fast the ball will move up and down
+        var paddleHeight = 30; // how tall the paddle is.
+        var paddleWidth = 200;
+
+        function setup() {
+            createCanvas(800, 600);
+            noCursor();
+
+            //sets ball to be a random location on the canvas (remix 1)
+            ballX = random(50, 300);
+            ballY = random(50, 300);
+        }
+
+        function draw() {
+            background(128); // clears the background everytime the ball movers
+            moveBall();
+            checkCollide();
+            drawPaddle();
+            drawBall();
+        }
+
+        function moveBall() {
+            ballX = ballX + ballSpeedX; // to move the ball left to right 
+            ballY = ballY + ballSpeedY; // to move the ball up and down 
+
+            console.log("ballSpeedX: " + ballSpeedX +
+                ", ballSpeedY: " + ballSpeedY); // allows you to see the change in the speed
+        }
+
+        function checkCollide() {
+            // when the ball hits the left of right edge
+            if (ballX < 0 || ballX > width) {
+                ballSpeedX = ballSpeedX * -1; // switch the direction of the ball 
+            }
+            // when ball hits the top wall 
+            if (ballY < 0) {
+                ballSpeedY = ballSpeedY * -1; //make the ball move down 
+            }
+            // when the ball hits the platform
+            if (ballY > height - paddleHeight) {
+                if (ballX > mouseX && ballX < mouseX + 200) {
+                    ballSpeedY = ballSpeedY * -1; //switch the direction of the ball 
+                    paddleWidth -= 2; // subtracts 5 pixles everytime the ball hits the paddle(remix 2)
+                }
+                else {
+                    // If the ball goes past the platform then game over
+                    text("GAME OVER!", width / 2, height / 2);
+                    noLoop();
+                }
+            }
+        }
+
+        function drawBall() {
+            noStroke();
+            ellipse(ballX, ballY, 20, 20);
+        }
+
+        function drawPaddle() {
+            strokeWeight(4);
+            rect(mouseX, height - paddleHeight - 4, paddleWidth, paddleHeight);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="code" class="container-fluid">
+        <script src="https://gist-it.appspot.com/github/anabela0701/p5js/blob/gh-pages/pongRemix.html?footer=0"></script>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        $(window).bind("load", function() {
+            $('#code').before($('#defaultCanvas0').remove());
+        });
+    </script>
+</body>
+
+</html>
 
